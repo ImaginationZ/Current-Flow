@@ -1,22 +1,47 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <cmath>
+#include <ctime>
+#include <cassert>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <list>
+#include <queue>
+#include <set>
+#include <map>
+#include <bitset>
 
-#include <QMainWindow>
+#include "Node.h"
+#include "Edge.h"
+#include "Gauss.h"
 
-namespace Ui {
-class MainWindow;
-}
+#include <QWidget>
 
-class MainWindow : public QMainWindow
+class Phy : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    Phy(QWidget *parent = 0);
+    QPoint startPoint;
+    QPoint endPoint;
+    QPoint lastPoint;
 
 private:
-    Ui::MainWindow *ui;
+
+protected:
+    void paintEvent(QPaintEvent *);
+    void mousePressEvent(QMouseEvent *);
+    void mouseMoveEvent(QMouseEvent *);
+    void mouseReleaseEvent(QMouseEvent *);
 };
 
-#endif // MAINWINDOW_H
+#endif
